@@ -14,10 +14,10 @@
 	<c:set var="today" value="<%=new Date()%>" />
 	<a href="/SluzbaWEB/stud/getPredmeti" >Klikni me</a>
 	
-	<form action="/SluzbaWEB/stud/savePrijava" method="post" modelAttribute="prijava" >
-		Datum prijave:  <input type="date" name="datumprijave" path="datumprijave" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${today }"/>'/> </br>
+	<form action="/SluzbaWEB/stud/savePrijava" modelAttribute="prijava"  method="post">
+		Datum prijave: <input type="date" name="datumprijave" path="datumprijave" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${today }"/>'/> </br>
 		Ispitni rok:
-		<select name="datumprijave" path="datumprijave">
+		<select name="ispitnirok" path="ispitnirok">
 				<option value="Januarsko-februarski">Januarsko-februarski</option>
 				<option value="Aprilski">Aprilski</option>
 				<option value="Junski">Junski</option>
@@ -45,11 +45,11 @@
 			</c:forEach>
 		</table> </br> --%>
 		
-		<select name="predmet" path="predmet">
+		<select name="predmet" >
 	  				<c:forEach var="p" items="${predmeti }">
-	  					<option value="${p.predmetid}">${p.naziv}</option>
+	  					<option value="${p.predmetid }">${p.naziv}</option>
 	  				</c:forEach>
-	  		</select>
+	  	</select>
 		
 		<input type="submit" value="Sacuvaj prijavu">
 		

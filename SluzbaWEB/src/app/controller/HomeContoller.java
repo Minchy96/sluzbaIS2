@@ -27,16 +27,15 @@ public class HomeContoller {
 
 	@RequestMapping(value="validacija", method=RequestMethod.POST)
 	public String validacija(String korisnickoIme, String sifra,Model m, HttpServletRequest request) {
-		Student s = sr.getStudentForLoginParameters(korisnickoIme, sifra);
-		if (s == null) {
+		if (korisnickoIme.contains("/")) {
+			Student s = sr.getStudentForLoginParameters(korisnickoIme, sifra);
+			request.getSession().setAttribute("korisnik", s);
+			return "Student";
+		} else {
 			Profesor  p = pr.getProfesorForLoginParameters(korisnickoIme, sifra);
-			if(p != null) {
-				request.getSession().setAttribute("korisnik", p);
-				return "Profesor";
-			}
+			request.getSession().setAttribute("korisnik", p);
+			return "Profesor";
 		}
-		request.getSession().setAttribute("korisnik", s);
-		return "Student";
 	}
 
 }

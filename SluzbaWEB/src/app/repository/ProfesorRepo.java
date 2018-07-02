@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import model.Departman;
 import model.Prijava;
 import model.Profesor;
 import model.Student;
@@ -50,6 +50,11 @@ public class ProfesorRepo {
 			e.printStackTrace();
 		}
 		return p;
+	}
+	
+	public Prijava getPrijava(int idPrijave) {
+		 Prijava p = em.find(Prijava.class,idPrijave);
+		 return p;
 	}
 	
 	public Prijava mergePrijava(Integer prijavaId, Integer ocena, Integer bodovi, String status){

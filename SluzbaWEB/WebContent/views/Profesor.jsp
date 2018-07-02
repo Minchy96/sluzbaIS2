@@ -17,15 +17,15 @@
 	<tr> <th>Id</th> <th>Broj indeksa</th> <th>Student</th> <th>Predmet</th> <th>Ocena</th> <th>Bodovi</th> <th>Status</th> <th> </th> </tr>
 	<c:forEach var="p" items="${prijave}">
 		<tr>
-			<form action="/SluzbaWEB/prof/updatePrijava" method="post">
-				<th>${p.prijavaid }</th>
+			<form action="/SluzbaWEB/prof/upadtePrijave" method="post" modelAttribute="prijava">
+				<th><input type="text" value="${p.prijavaid } " name="prijavaid" path="prijavaid"></th>
 				<th>${p.student.brindeksa } </th>
 				<th>${p.student.ime } ${p.student.prezime } </th>
 				<th>${p.predmet.naziv } </th>
-				<th> <input type="text" name="ocena"> </th>
-				<th> <input type="text" name="bodovi"> </th>
+				<th> <input type="text" name="ocena" path="ocena"> </th>
+				<th> <input type="text" name="bodovi" path="bodovi"> </th>
 				<th> 
-					<select name="status">
+					<select name="status" path="status">
 						<option value="Polozen">Polozen</option>
 						<option value="Nepolozen">Nepolozen</option>
 						<option value="Nije izasao">Nije izasao</option>
